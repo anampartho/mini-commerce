@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { LuStar } from "react-icons/lu";
 import { ProductCard } from "@/utils/interfaces";
+import Link from "next/link";
 
-const ProductCard = ({ image, rating, title, price }: ProductCard) => {
+const ProductCard = ({ image, rating, title, price, id }: ProductCard) => {
   return (
     <div className="border rounded">
       <div className="p-10">
@@ -25,7 +26,9 @@ const ProductCard = ({ image, rating, title, price }: ProductCard) => {
             );
           })}
         </ul>
-        <h2 className="text-center font-bold text-xl">{title}</h2>
+        <h2 className="text-center font-bold text-xl">
+          <Link href={`product/${id}`}>{title}</Link>
+        </h2>
         <p className="text-center mt-1 font-bold">${price}</p>
       </div>
     </div>

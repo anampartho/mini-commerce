@@ -12,6 +12,7 @@ const ProductListing = () => {
           src: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
           alt: "Product name",
         }}
+        id="1"
       />
     </div>
   );
