@@ -1,6 +1,9 @@
 "use client";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import Filter from "@/components/Filter/Filter";
+import { initiate } from "@/redux/features/filter-slice";
+import { useDispatch } from "react-redux";
+import { AppDispatch, useMiniSelector } from "@/redux/store";
 
 const filters = [
   {
@@ -9,46 +12,57 @@ const filters = [
     options: [
       {
         id: "electronics",
-        name: "Electronics",
+        name: "electronics",
+        title: "Electronics",
       },
       {
         id: "jewelery",
-        name: "Jewelery",
+        name: "jewelery",
+        title: "Jewelery",
       },
       {
         id: "mens-clothing",
-        name: "Men's Clothing",
+        name: "men's clothing",
+        title: "Men's Clothing",
       },
       {
         id: "womens-clothing",
-        name: "Women's Clothing",
+        name: "women's clothing",
+        title: "Women's Clothing",
       },
     ],
   },
 ];
 
 const Sidebar = () => {
-  const [selectedFilters, setSelectedFilters] = useState([] as string[]);
+  // const [selectedFilters, setSelectedFilters] = useState([] as string[]);
+  const dispatch = useDispatch<AppDispatch>();
+  const selectedFilters = useMiniSelector((state) => state.filterSlice.filters);
 
   function handleFilterChange(e: ChangeEvent<HTMLInputElement>) {
-    const id = e.target.id;
-    const indexOfCurrentId = selectedFilters.findIndex((item) => item === id);
+    const name = e.target.name;
     const selectedFiltersCopy = [...selectedFilters] as string[];
+    const indexOfCurrentFilter = selectedFilters.findIndex(
+      (item) => item === name
+    );
 
-    if (indexOfCurrentId > -1) {
-      selectedFiltersCopy.splice(indexOfCurrentId, 1);
+    if (indexOfCurrentFilter > -1) {
+      selectedFiltersCopy.splice(indexOfCurrentFilter, 1);
     } else {
-      selectedFiltersCopy.push(id);
+      selectedFiltersCopy.push(name);
     }
 
-    setSelectedFilters(selectedFiltersCopy);
+    dispatch(initiate(selectedFiltersCopy));
+  }
+
+  function clearFilterHandler() {
+    dispatch(initiate([]));
   }
 
   return (
     <aside className="w-3/12">
       <header className="flex justify-between items-center mb-10">
         <h2 className="font-black uppercase text-3xl text-green-800">Filter</h2>
-        <button>Clear Filter</button>
       </header>
       {filters.map((filter) => {
         return (

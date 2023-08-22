@@ -10,11 +10,9 @@ const ProductListing = async () => {
   const dehydratedState = dehydrate(queryClient);
 
   return (
-    <div className="grid gap-2 grid-cols-3 grid-rows-auto">
-      <Hydrate state={dehydratedState}>
-        <ProductList />
-      </Hydrate>
-    </div>
+    <Hydrate state={dehydratedState}>
+      <ProductList />
+    </Hydrate>
   );
 };
 

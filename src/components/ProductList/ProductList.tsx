@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/utils/api";
@@ -10,6 +10,8 @@ import { AppDispatch, useMiniSelector } from "@/redux/store";
 const ProductList = () => {
   const dispatch = useDispatch<AppDispatch>();
   const products = useMiniSelector((state) => state.productsReducer.products);
+  const selectedFilters = useMiniSelector((state) => state.filterSlice.filters);
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
   const { data } = useQuery({
     queryKey: ["hydrate-products"],
@@ -19,25 +21,40 @@ const ProductList = () => {
   useEffect(() => {
     if (!data?.length) return;
     dispatch(initiate(data));
+    setFilteredProducts(data);
   }, [data, dispatch]);
+
+  useEffect(() => {
+    if (selectedFilters.length) {
+      setFilteredProducts(
+        products.filter((product) =>
+          selectedFilters.includes(product.category || "")
+        )
+      );
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [selectedFilters, products]);
 
   return (
     <>
-      {products?.map((product) => {
-        return (
-          <ProductCard
-            key={product.id}
-            title={product?.title}
-            rating={product?.rating?.rate}
-            price={product?.price}
-            image={{
-              src: product?.image,
-              alt: product?.title,
-            }}
-            id={product?.id}
-          />
-        );
-      })}
+      <div className="grid gap-2 grid-cols-3 grid-rows-auto">
+        {filteredProducts?.map((product) => {
+          return (
+            <ProductCard
+              key={product.id}
+              title={product?.title}
+              rating={product?.rating?.rate}
+              price={product?.price}
+              image={{
+                src: product?.image,
+                alt: product?.title,
+              }}
+              id={product?.id}
+            />
+          );
+        })}
+      </div>
     </>
   );
 };

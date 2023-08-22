@@ -5,7 +5,7 @@ export interface ClassName {
 }
 
 export interface Filter {
-  options: { name: string; id: string }[];
+  options: { name: string; id: string; title: string }[];
   children: ReactNode;
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
