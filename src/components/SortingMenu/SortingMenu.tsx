@@ -17,8 +17,9 @@ const SortingMenu = () => {
         id="countries"
         className="text-sm focus:ring-blue-500 focus:border-blue-500 block  p-2 bg-transparent"
         onChange={sortByHandler}
+        defaultValue="none"
       >
-        <option selected className="uppercase">
+        <option value="none" className="uppercase">
           None
         </option>
         <option value="alphabet-ascending" className="uppercase">
