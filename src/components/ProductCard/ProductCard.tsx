@@ -10,7 +10,7 @@ const ProductCard = ({ image, rating, title, price, id }: ProductCard) => {
       <div className="rounded bg-white shadow-sm h-full">
         <div className="p-10">
           <div className="relative w-full pb-[100%]">
-            <Image src={image.src} fill={true} alt={image.alt} />
+            <Image src={image?.src || ""} fill={true} alt={image?.alt || ""} />
           </div>
         </div>
         <div className="px-5 pb-5">

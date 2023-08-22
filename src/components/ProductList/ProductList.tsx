@@ -16,14 +16,14 @@ const ProductList = () => {
         return (
           <ProductCard
             key={product.id}
-            title={product.title}
-            rating={product.rating.rate}
-            price={product.price}
+            title={product?.title}
+            rating={product?.rating?.rate}
+            price={product?.price}
             image={{
-              src: product.image,
-              alt: product.title,
+              src: product?.image,
+              alt: product?.title,
             }}
-            id={product.id}
+            id={product?.id}
           />
         );
       })}

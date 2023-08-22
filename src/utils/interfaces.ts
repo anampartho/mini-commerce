@@ -11,14 +11,14 @@ export interface Filter {
 }
 
 export interface ProductCard {
-  image: {
-    src: string;
-    alt: string;
+  image?: {
+    src?: string | undefined;
+    alt?: string | undefined;
   };
-  rating: number | string;
-  title: string;
-  price: string | number;
-  id: string | number;
+  rating?: number | string | undefined;
+  title?: string | undefined;
+  price?: string | number | undefined;
+  id?: string | number | undefined;
 }
 
 export interface PageHeader {
