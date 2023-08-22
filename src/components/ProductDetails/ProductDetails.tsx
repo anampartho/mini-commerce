@@ -58,7 +58,7 @@ const ProductDetails = ({ id }: { id: string }) => {
           )}
         </div>
         <div>
-          <div className="flex justify-between mb-10">
+          <div className="flex flex-col gap-4 md:flex-row justify-between mb-10">
             <Quantity value={quantity} setQuantity={setQuantity} />
             <Button onClick={addToCartHandler}>Add to Cart</Button>
           </div>
