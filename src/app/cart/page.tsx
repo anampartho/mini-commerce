@@ -1,5 +1,5 @@
-import CartItem from "@/components/CartItem/CartItem";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import CartItems from "@/components/CartItems/CartItems";
 
 export default function Cart() {
   return (
@@ -12,7 +12,7 @@ export default function Cart() {
           <p className="w-2/12 text-right text-green-950">Total</p>
           <p className="w-1/12 text-green-950">&nbsp;</p>
         </header>
-        <CartItem />
+        <CartItems />
       </div>
     </div>
   );

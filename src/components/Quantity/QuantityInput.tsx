@@ -15,6 +15,7 @@ const QuantityInput = ({
     setQuantity(Number(value) - 1);
   }
   function increaseQuantity() {
+    console.log("hi");
     setQuantity(Number(value) + 1);
   }
   return (
