@@ -1,4 +1,4 @@
-import { MouseEventHandler, ReactNode } from "react";
+import { ChangeEventHandler, MouseEventHandler, ReactNode } from "react";
 
 export interface ClassName {
   className?: string;
@@ -7,6 +7,7 @@ export interface ClassName {
 export interface Filter {
   options: { name: string; id: string }[];
   children: ReactNode;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
 export interface ProductCard {
