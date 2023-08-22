@@ -1,9 +1,10 @@
 import { LuUser, LuShoppingCart, LuSearch } from "react-icons/lu";
 import NavItem from "../Navbar/NavItem";
+import { ClassName } from "@/utils/interfaces";
 
-const UserIcons = () => {
+const UserIcons = ({ className }: ClassName) => {
   return (
-    <ul className="flex items-center">
+    <ul className={`flex items-center ${className}`}>
       <li>
         <NavItem href="">
           <LuSearch />

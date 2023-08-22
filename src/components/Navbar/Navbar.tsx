@@ -1,5 +1,6 @@
 import React from "react";
 import NavItem from "./NavItem";
+import { ClassName } from "@/utils/interfaces";
 
 const menuItems = [
   {
@@ -24,9 +25,9 @@ const menuItems = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ className }: ClassName) => {
   return (
-    <nav className="">
+    <nav className={`${className}`}>
       <div>
         <ul className="flex">
           {menuItems.map((item) => {
