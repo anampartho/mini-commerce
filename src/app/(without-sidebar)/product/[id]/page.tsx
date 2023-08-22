@@ -1,14 +1,20 @@
 "use client";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { LuPlus } from "react-icons/lu";
 
 // Swiper related styles
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader/PageHeader";
+import Button from "@/components/Button/Button";
 
 export default function Product() {
+  function addToCartHandler(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    console.log("add to cart");
+  }
   return (
     <>
       <PageHeader title="Product Name">
@@ -43,7 +49,7 @@ export default function Product() {
             <div>
               <h2 className="font-black text-xl text-green-800">Quantity</h2>
             </div>
-            <button>Add To Cart</button>
+            <Button onClick={addToCartHandler}>Add to Cart</Button>
           </div>
           <div>
             <p>

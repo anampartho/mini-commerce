@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 export interface ClassName {
   className?: string;
@@ -23,4 +23,10 @@ export interface ProductCard {
 export interface PageHeader {
   children?: ReactNode;
   title: string;
+}
+
+export interface Button {
+  children: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+  className?: string | undefined;
 }
