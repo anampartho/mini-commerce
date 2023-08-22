@@ -8,3 +8,13 @@ export interface Filter {
   options: { name: string; id: string }[];
   children: ReactNode;
 }
+
+export interface ProductCard {
+  image: {
+    src: string;
+    alt: string;
+  };
+  rating: number | string;
+  title: string;
+  price: string | number;
+}
