@@ -121,19 +121,7 @@ const ProductList = () => {
       <SortingMenu />
       <div className="grid gap-2 grid-cols-3 grid-rows-auto">
         {sortedAndFilteredProducts?.map((product) => {
-          return (
-            <ProductCard
-              key={product.id}
-              title={product?.title}
-              rating={product?.rating?.rate}
-              price={product?.price}
-              image={{
-                src: product?.image,
-                alt: product?.title,
-              }}
-              id={product?.id}
-            />
-          );
+          return <ProductCard key={product.id} product={product} />;
         })}
       </div>
     </>

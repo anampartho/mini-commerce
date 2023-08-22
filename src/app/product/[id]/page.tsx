@@ -1,7 +1,7 @@
 import Hydrate from "@/react-query/hydrate.client";
 import getQueryClient from "@/react-query/getQueryClient";
 import { dehydrate } from "@tanstack/query-core";
-import { getProduct, getProducts } from "@/utils/api";
+import { getProduct } from "@/utils/api";
 import ProductDetails from "@/components/ProductDetails/ProductDetails";
 
 export default async function Product({ params }: { params: { id: string } }) {
