@@ -66,7 +66,7 @@ const Sidebar = () => {
     <aside
       className={`fixed z-10 translate-x-[-100%] left-0 top-0 w-[80%] py-5 px-10 h-[100%] ${
         sidebarOpen ? "translate-x-[0] bg-white" : ""
-      } md:block md:relative md:p-0 transition-[transform,background-color] md:w-3/12 md:translate-x-[0]`}
+      } md:block md:relative md:bg-[unset] md:p-0 transition-[transform,background-color] md:w-3/12 md:translate-x-[0]`}
     >
       <Logo className="md:hidden mb-10 block" />
       <header className="flex justify-between items-center mb-5 md:mb-10">
