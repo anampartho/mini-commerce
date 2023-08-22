@@ -15,6 +15,7 @@ import Quantity from "@/components/Quantity/Quantity";
 import { add } from "@/redux/features/cart-slice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
+import { toast } from "react-toastify";
 
 const ProductDetails = ({ id }: { id: string }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -28,6 +29,7 @@ const ProductDetails = ({ id }: { id: string }) => {
   function addToCartHandler(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     dispatch(add({ ...product, totalQuantity: quantity }));
+    toast.success("Product was successfully added to your cart!");
   }
 
   return (
