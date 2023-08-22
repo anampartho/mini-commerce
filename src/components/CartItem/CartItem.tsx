@@ -5,8 +5,11 @@ import { LuTrash2 } from "react-icons/lu";
 import Link from "next/link";
 import QuantityInput from "../Quantity/QuantityInput";
 import { Product } from "@/utils/types";
+import { useDispatch } from "react-redux";
+import { remove } from "@/redux/features/cart-slice";
 
 const CartItem = ({ product }: { product: Product }) => {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(product.totalQuantity || 1);
   return (
     <>
@@ -39,7 +42,11 @@ const CartItem = ({ product }: { product: Product }) => {
             ${quantity * Number(product.price)}
           </p>
           <p className="w-1/12 text-right text-green-800">
-            <button>
+            <button
+              onClick={() => {
+                dispatch(remove(product?.id));
+              }}
+            >
               <LuTrash2 />
             </button>
           </p>

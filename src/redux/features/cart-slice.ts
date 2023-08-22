@@ -35,7 +35,21 @@ export const cart = createSlice({
 
       state.value.totalQuantity += action.payload.totalQuantity;
     },
-    remove(state, action: PayloadAction<string | number>) {
+    remove(state, action: PayloadAction<string | number | undefined>) {
+      // check if item exits in cart
+      const productIndexInCart = state.value.products.findIndex(
+        (item) => item.id == action.payload
+      );
+
+      if (productIndexInCart > -1) {
+        state.value.products.splice(productIndexInCart, 1);
+      }
+
+      if (state.value.totalQuantity > 0) {
+        state.value.totalQuantity--;
+      }
+    },
+    reducefromCart(state, action: PayloadAction<string | number | undefined>) {
       // check if item exits in cart
       const productIndexInCart = state.value.products.findIndex(
         (item) => item.id == action.payload
@@ -58,5 +72,5 @@ export const cart = createSlice({
   },
 });
 
-export const { add, remove } = cart.actions;
+export const { add, remove, reducefromCart } = cart.actions;
 export default cart.reducer;
