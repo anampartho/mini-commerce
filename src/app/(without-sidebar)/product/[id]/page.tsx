@@ -13,7 +13,6 @@ import Quantity from "@/components/Quantity/Quantity";
 export default function Product() {
   function addToCartHandler(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    console.log("add to cart");
   }
   return (
     <>
@@ -28,8 +27,6 @@ export default function Product() {
             slidesPerView={1}
             navigation
             scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
           >
             <SwiperSlide>
               <div className="p-10 shadow-sm rounded bg-white">

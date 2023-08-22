@@ -1,18 +1,5 @@
-import Product from "@/app/(without-sidebar)/product/[id]/page";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type Product = {
-  id: number | string;
-  title: string;
-  price: string | number;
-  category: string;
-  image: string;
-  totalQuantity: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-};
+import type { Product } from "@/utils/types";
 
 type CartState = {
   totalQuantity: number;

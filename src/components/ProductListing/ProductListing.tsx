@@ -1,19 +1,19 @@
-import React from "react";
-import ProductCard from "@/components/ProductCard/ProductCard";
+import Hydrate from "@/react-query/hydrate.client";
+import getQueryClient from "@/react-query/getQueryClient";
+import ProductList from "@/components/ProductList/ProductList";
+import { dehydrate } from "@tanstack/query-core";
+import { getProducts } from "@/utils/api";
 
-const ProductListing = () => {
+const ProductListing = async () => {
+  const queryClient = getQueryClient();
+  await queryClient.prefetchQuery(["hydrate-products"], getProducts);
+  const dehydratedState = dehydrate(queryClient);
+
   return (
     <div className="grid gap-2 grid-cols-3 grid-rows-auto">
-      <ProductCard
-        title="Name"
-        rating={4.5}
-        price="100"
-        image={{
-          src: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-          alt: "Product name",
-        }}
-        id="1"
-      />
+      <Hydrate state={dehydratedState}>
+        <ProductList />
+      </Hydrate>
     </div>
   );
 };

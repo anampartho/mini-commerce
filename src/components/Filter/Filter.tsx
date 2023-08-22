@@ -13,7 +13,6 @@ const Filter = ({ options, children }: Filter) => {
         </button>
       </div>
       {options.map((option) => {
-        console.log({ option });
         return (
           <div className="flex items-center mb-4" key={option.id}>
             <input

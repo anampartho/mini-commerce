@@ -17,7 +17,7 @@ export interface ProductCard {
   rating: number | string;
   title: string;
   price: string | number;
-  id: string;
+  id: string | number;
 }
 
 export interface PageHeader {

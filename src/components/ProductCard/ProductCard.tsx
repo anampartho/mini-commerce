@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const ProductCard = ({ image, rating, title, price, id }: ProductCard) => {
   return (
-    <Link href={`product/${id}`}>
-      <div className="rounded bg-white shadow-sm">
+    <Link href={`product/${id}`} className="h-full">
+      <div className="rounded bg-white shadow-sm h-full">
         <div className="p-10">
           <div className="relative w-full pb-[100%]">
             <Image src={image.src} fill={true} alt={image.alt} />
