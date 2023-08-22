@@ -4,7 +4,7 @@ import React from "react";
 
 const Logo = ({ className }: ClassName) => {
   return (
-    <Link href="/" className={`text-5xl font-bold ${className}`}>
+    <Link href="/" className={`text-5xl font-black ${className}`}>
       Mini.
     </Link>
   );
