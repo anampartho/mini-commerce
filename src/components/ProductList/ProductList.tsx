@@ -1,14 +1,25 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/utils/api";
+import { initiate } from "@/redux/features/products-slice";
+import { useDispatch } from "react-redux";
+import { AppDispatch, useMiniSelector } from "@/redux/store";
 
 const ProductList = () => {
-  const { data: products } = useQuery({
+  const dispatch = useDispatch<AppDispatch>();
+  const products = useMiniSelector((state) => state.productsReducer.products);
+
+  const { data } = useQuery({
     queryKey: ["hydrate-products"],
     queryFn: () => getProducts(),
   });
+
+  useEffect(() => {
+    if (!data?.length) return;
+    dispatch(initiate(data));
+  }, [data, dispatch]);
 
   return (
     <>
