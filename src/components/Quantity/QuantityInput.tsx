@@ -1,21 +1,27 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, MouseEventHandler, SetStateAction } from "react";
 import IconButton from "../IconButton/IconButton";
 import { LuPlus, LuMinus } from "react-icons/lu";
 
 const QuantityInput = ({
   value,
   setQuantity,
+  beforeSetQuantity = (e) => {},
+  beforeReduceQuantity = (e) => {},
 }: {
   value: string | number;
   setQuantity: Dispatch<SetStateAction<number>>;
+  beforeSetQuantity?: MouseEventHandler<HTMLButtonElement>;
+  beforeReduceQuantity?: MouseEventHandler<HTMLButtonElement>;
 }) => {
-  function reduceQuantity() {
+  function reduceQuantity(e: React.MouseEvent<HTMLButtonElement>) {
     if (Number(value) <= 1) return;
+
+    beforeReduceQuantity(e);
 
     setQuantity(Number(value) - 1);
   }
-  function increaseQuantity() {
-    console.log("hi");
+  function increaseQuantity(e: React.MouseEvent<HTMLButtonElement>) {
+    beforeSetQuantity(e);
     setQuantity(Number(value) + 1);
   }
   return (
@@ -29,7 +35,7 @@ const QuantityInput = ({
         value={value}
       />
 
-      <IconButton className="col-span-1" onClick={increaseQuantity}>
+      <IconButton className="col-span-1" onClick={(e) => increaseQuantity(e)}>
         <LuPlus />
       </IconButton>
     </div>

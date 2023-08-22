@@ -16,21 +16,16 @@ import { add } from "@/redux/features/cart-slice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { toast } from "react-toastify";
+import { useAddToCart } from "@/utils/useAddToCart";
 
 const ProductDetails = ({ id }: { id: string }) => {
-  const dispatch = useDispatch<AppDispatch>();
+  const addToCartHandler = useAddToCart();
   const [quantity, setQuantity] = useState(1);
 
   const { data: product } = useQuery({
     queryKey: [`hydrate-product-${id}`],
     queryFn: () => getProduct(id),
   });
-
-  function addToCartHandler(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
-    dispatch(add({ ...product, totalQuantity: quantity }));
-    toast.success("Product was successfully added to your cart!");
-  }
 
   return (
     <>
@@ -60,7 +55,9 @@ const ProductDetails = ({ id }: { id: string }) => {
         <div>
           <div className="flex flex-col gap-4 md:flex-row justify-between mb-10">
             <Quantity value={quantity} setQuantity={setQuantity} />
-            <Button onClick={addToCartHandler}>Add to Cart</Button>
+            <Button onClick={(e) => addToCartHandler(e, product, quantity)}>
+              Add to Cart
+            </Button>
           </div>
           <div>
             <p>{product?.description}</p>

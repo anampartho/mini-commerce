@@ -7,18 +7,23 @@ import QuantityInput from "../Quantity/QuantityInput";
 import { Product } from "@/utils/types";
 import { useDispatch } from "react-redux";
 import { remove } from "@/redux/features/cart-slice";
+import { useAddToCart } from "@/utils/useAddToCart";
+import { useReduceFromCart } from "@/utils/useReduceFromCart";
 
 const CartItem = ({ product }: { product: Product }) => {
   const dispatch = useDispatch();
+  const addToCartHandler = useAddToCart();
+  const reduceFromCartHandler = useReduceFromCart();
+
   const [quantity, setQuantity] = useState(product.totalQuantity || 1);
   return (
     <>
       {product && (
-        <div className="flex items-center py-4">
-          <div className="w-7/12">
-            <div className="flex gap-10 items-center">
+        <div className="flex flex-col lg:flex-row items-flex-start lg:items-center py-4">
+          <div className="w-full md:w-7/12">
+            <div className="flex flex-col md:flex-row gap-10 md:items-center">
               <div className="p-4 rounded bg-white shadow-sm">
-                <div className="w-[100px] h-[100px] basis-[100px] relative">
+                <div className="w-full pb-[100%] md:pb-0 md:w-[100px] md:h-[100px] basis-[100%] md:basis-[100px] relative">
                   <Image
                     src={product?.image || ""}
                     alt={product?.title || ""}
@@ -33,23 +38,35 @@ const CartItem = ({ product }: { product: Product }) => {
               </div>
             </div>
           </div>
-          <div className="w-2/12 text-green-800">
-            {product?.totalQuantity && (
-              <QuantityInput value={quantity} setQuantity={setQuantity} />
-            )}
+          <div className="w-full flex lg:w-5/12 items-center mt-4 lg:mt-0">
+            <div className="w-2/5 text-green-800">
+              {product?.totalQuantity && (
+                <QuantityInput
+                  value={quantity}
+                  setQuantity={setQuantity}
+                  beforeSetQuantity={(e) => addToCartHandler(e, product, 1)}
+                  beforeReduceQuantity={(e) =>
+                    reduceFromCartHandler(e, product?.id)
+                  }
+                />
+              )}
+            </div>
+            <p className="w-2/5 text-right text-green-800">
+              $
+              {Math.round(
+                (quantity * Number(product.price) + Number.EPSILON) * 100
+              ) / 100}
+            </p>
+            <p className="w-1/5 text-right text-green-800">
+              <button
+                onClick={() => {
+                  dispatch(remove(product?.id));
+                }}
+              >
+                <LuTrash2 />
+              </button>
+            </p>
           </div>
-          <p className="w-2/12 text-right text-green-800">
-            ${quantity * Number(product.price)}
-          </p>
-          <p className="w-1/12 text-right text-green-800">
-            <button
-              onClick={() => {
-                dispatch(remove(product?.id));
-              }}
-            >
-              <LuTrash2 />
-            </button>
-          </p>
         </div>
       )}
     </>

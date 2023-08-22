@@ -3,16 +3,12 @@ import React from "react";
 import Image from "next/image";
 import { LuStar } from "react-icons/lu";
 import Link from "next/link";
-import { add } from "@/redux/features/cart-slice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import { toast } from "react-toastify";
 import Button from "../Button/Button";
 import { Product } from "@/utils/types";
-import { useAddToCartHandler } from "@/utils/addToCartHandler";
+import { useAddToCart } from "@/utils/useAddToCart";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const addToCartHandler = useAddToCartHandler();
+  const addToCartHandler = useAddToCart();
 
   return (
     <Link href={`product/${product?.id}`} className="h-full group">
