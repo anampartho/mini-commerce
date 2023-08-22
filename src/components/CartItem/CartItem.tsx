@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { LuTrash2 } from "react-icons/lu";
 import Link from "next/link";
+import QuantityInput from "../Quantity/QuantityInput";
 
 const CartItem = () => {
   return (
@@ -24,7 +25,9 @@ const CartItem = () => {
           </div>
         </div>
       </div>
-      <p className="w-2/12 text-green-800">10</p>
+      <p className="w-2/12 text-green-800">
+        <QuantityInput value={1} />
+      </p>
       <p className="w-2/12 text-right text-green-800">$100</p>
       <p className="w-1/12 text-right text-green-800">
         <button>

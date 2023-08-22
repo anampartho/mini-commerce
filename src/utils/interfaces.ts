@@ -30,3 +30,5 @@ export interface Button {
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   className?: string | undefined;
 }
+
+export interface IconButton extends Button {}

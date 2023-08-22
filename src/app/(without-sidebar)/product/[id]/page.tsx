@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Button from "@/components/Button/Button";
+import Quantity from "@/components/Quantity/Quantity";
 
 export default function Product() {
   function addToCartHandler(e: React.MouseEvent<HTMLButtonElement>) {
@@ -46,9 +47,7 @@ export default function Product() {
         </div>
         <div>
           <div className="flex justify-between mb-10">
-            <div>
-              <h2 className="font-black text-xl text-green-800">Quantity</h2>
-            </div>
+            <Quantity />
             <Button onClick={addToCartHandler}>Add to Cart</Button>
           </div>
           <div>
