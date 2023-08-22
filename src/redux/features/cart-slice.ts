@@ -40,12 +40,13 @@ export const cart = createSlice({
       );
 
       if (productIndexInCart > -1) {
-        state.value.products[productIndexInCart].totalQuantity++;
+        state.value.products[productIndexInCart].totalQuantity +=
+          action.payload.totalQuantity;
       } else {
         state.value.products.push({ ...action.payload });
       }
 
-      state.value.totalQuantity++;
+      state.value.totalQuantity += action.payload.totalQuantity;
     },
     remove(state, action: PayloadAction<string | number>) {
       // check if item exits in cart
