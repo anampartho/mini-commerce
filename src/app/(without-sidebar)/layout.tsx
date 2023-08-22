@@ -3,6 +3,7 @@ import "../globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { ReduxProvider } from "@/redux/provider";
+import ReactQueryProvider from "@/react-query/provider";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
@@ -23,7 +24,9 @@ export default function ProductLayout({
           <Header />
           <main className="max-w-full px-10 mt-10">
             <div className="max-w-screen-2xl mx-auto flex gap-12">
-              <section className="w-full">{children}</section>
+              <section className="w-full">
+                <ReactQueryProvider>{children}</ReactQueryProvider>
+              </section>
             </div>
           </main>
         </ReduxProvider>

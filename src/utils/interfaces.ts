@@ -22,7 +22,7 @@ export interface ProductCard {
 
 export interface PageHeader {
   children?: ReactNode;
-  title: string;
+  title?: string;
 }
 
 export interface Button {
