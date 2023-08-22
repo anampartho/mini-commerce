@@ -4,6 +4,8 @@ import Filter from "@/components/Filter/Filter";
 import { initiate } from "@/redux/features/filter-slice";
 import { useDispatch } from "react-redux";
 import { AppDispatch, useMiniSelector } from "@/redux/store";
+import UserIcons from "../UserIcons/UserIcons";
+import Logo from "../Logo/Logo";
 
 const filters = [
   {
@@ -38,6 +40,7 @@ const Sidebar = () => {
   // const [selectedFilters, setSelectedFilters] = useState([] as string[]);
   const dispatch = useDispatch<AppDispatch>();
   const selectedFilters = useMiniSelector((state) => state.filterSlice.filters);
+  const sidebarOpen = useMiniSelector((state) => state.sidebarSlice.open);
 
   function handleFilterChange(e: ChangeEvent<HTMLInputElement>) {
     const name = e.target.name;
@@ -60,8 +63,13 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className="w-3/12 hidden md:block">
-      <header className="flex justify-between items-center mb-10">
+    <aside
+      className={`fixed z-10 translate-x-[-100%] left-0 top-0 w-[80%] py-5 px-10 h-[100%] ${
+        sidebarOpen ? "translate-x-[0] bg-white" : ""
+      } md:block md:relative md:p-0 transition-[transform,background-color] md:w-3/12 md:translate-x-[0]`}
+    >
+      <Logo className="md:hidden mb-10 block" />
+      <header className="flex justify-between items-center mb-5 md:mb-10">
         <h2 className="font-black uppercase text-3xl text-green-800">Filter</h2>
       </header>
       {filters.map((filter) => {
@@ -75,6 +83,7 @@ const Sidebar = () => {
           </Filter>
         );
       })}
+      <UserIcons className="md:hidden mt-10 justify-start" />
     </aside>
   );
 };
