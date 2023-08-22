@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { LuTrash2 } from "react-icons/lu";
+import Link from "next/link";
 
 const CartItem = () => {
   return (
@@ -17,7 +18,9 @@ const CartItem = () => {
             </div>
           </div>
           <div>
-            <p className="font-bold text-green-800">Product Name</p>
+            <p className="font-bold text-green-800">
+              <Link href="/">Product Name</Link>
+            </p>
           </div>
         </div>
       </div>
