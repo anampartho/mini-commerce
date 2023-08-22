@@ -1,7 +1,6 @@
 "use client";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { LuPlus } from "react-icons/lu";
 
 // Swiper related styles
 import "swiper/css";
