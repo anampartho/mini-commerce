@@ -4,7 +4,7 @@ import { ClassName } from "@/utils/interfaces";
 
 const UserIcons = ({ className }: ClassName) => {
   return (
-    <ul className={`flex items-center ${className}`}>
+    <ul className={`flex items-center ${className} text-green-800`}>
       <li>
         <NavItem href="">
           <LuSearch />

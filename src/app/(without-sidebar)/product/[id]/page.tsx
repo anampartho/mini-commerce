@@ -12,7 +12,7 @@ export default function Product() {
   return (
     <>
       <PageHeader title="Product Name">
-        <p className="font-bold mt-2">$100</p>
+        <p className="font-bold mt-2 text-green-900">$100</p>
       </PageHeader>
       <div className="grid grid-cols-2 gap-10">
         <div>
@@ -26,18 +26,7 @@ export default function Product() {
             onSlideChange={() => console.log("slide change")}
           >
             <SwiperSlide>
-              <div className="p-10 border rounded">
-                <div className="relative w-full pb-[100%]">
-                  <Image
-                    src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-                    alt="12"
-                    fill={true}
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="p-10 border rounded">
+              <div className="p-10 shadow-sm rounded bg-white">
                 <div className="relative w-full pb-[100%]">
                   <Image
                     src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
@@ -52,7 +41,7 @@ export default function Product() {
         <div>
           <div className="flex justify-between mb-10">
             <div>
-              <h2 className="font-bold text-xl">Quantity</h2>
+              <h2 className="font-black text-xl text-green-800">Quantity</h2>
             </div>
             <button>Add To Cart</button>
           </div>

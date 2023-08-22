@@ -17,7 +17,7 @@ export default function ProductLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} bg-green-50`}>
         <Header />
         <main className="max-w-full px-10 mt-10">
           <div className="max-w-screen-2xl mx-auto flex gap-12">

@@ -7,7 +7,7 @@ const CartItem = () => {
     <div className="flex items-center py-4">
       <div className="w-7/12">
         <div className="flex gap-10 items-center">
-          <div className="p-4  border rounded">
+          <div className="p-4 rounded bg-white shadow-sm">
             <div className="w-[100px] h-[100px] basis-[100px] relative">
               <Image
                 src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
@@ -17,13 +17,13 @@ const CartItem = () => {
             </div>
           </div>
           <div>
-            <p className="font-bold">Product Name</p>
+            <p className="font-bold text-green-800">Product Name</p>
           </div>
         </div>
       </div>
-      <p className="w-2/12">10</p>
-      <p className="w-2/12 text-right">$100</p>
-      <p className="w-1/12 text-right">
+      <p className="w-2/12 text-green-800">10</p>
+      <p className="w-2/12 text-right text-green-800">$100</p>
+      <p className="w-1/12 text-right text-green-800">
         <button>
           <LuTrash2 />
         </button>

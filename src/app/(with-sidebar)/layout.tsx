@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} bg-green-50 text-green-950`}>
         <Header />
         <main className="max-w-full px-10 mt-10">
           <div className="max-w-screen-2xl mx-auto flex gap-12">

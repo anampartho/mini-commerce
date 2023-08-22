@@ -28,7 +28,7 @@ const Sidebar = () => {
   return (
     <aside className="w-3/12">
       <header className="flex justify-between items-center mb-10">
-        <h2 className="font-bold uppercase text-3xl">Filter</h2>
+        <h2 className="font-black uppercase text-3xl text-green-800">Filter</h2>
         <button>Clear Filter</button>
       </header>
       {filters.map((filter) => {

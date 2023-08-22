@@ -6,10 +6,10 @@ const Filter = ({ options, children }: Filter) => {
   return (
     <div className="mb-6 last:mb-0">
       <div className="flex justify-between items-center mb-3">
-        <h3 className="font-bold uppercase">{children}</h3>
+        <h3 className="font-bold text-green-800 uppercase">{children}</h3>
         <button>
-          <LuChevronDown />
-          {/* <LuChevronUp /> */}
+          <LuChevronDown className="text-green-800" />
+          {/* <LuChevronUp className="text-green-800" /> */}
         </button>
       </div>
       {options.map((option) => {
