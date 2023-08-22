@@ -1,10 +1,9 @@
 import Header from "@/components/Header/Header";
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import { Poppins } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Mini Commerce",
@@ -18,7 +17,7 @@ export default function ProductLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Header />
         <main className="max-w-full px-10 mt-10">
           <div className="max-w-screen-2xl mx-auto flex gap-12">

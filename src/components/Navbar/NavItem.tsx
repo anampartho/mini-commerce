@@ -8,7 +8,7 @@ interface NavItem {
 
 const NavItem = ({ href, children }: NavItem) => {
   return (
-    <Link href={href} className="px-1 mx-6 block text-xl">
+    <Link href={href} className="px-1 mx-6 block text-xl font-bold">
       {children}
     </Link>
   );
