@@ -19,3 +19,8 @@ export interface ProductCard {
   price: string | number;
   id: string;
 }
+
+export interface PageHeader {
+  children?: ReactNode;
+  title: string;
+}
