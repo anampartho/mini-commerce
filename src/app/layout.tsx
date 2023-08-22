@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-green-50 text-green-950`}>
+      <body className={`${poppins.className} bg-green-50 text-green-950 pb-10`}>
         <ReduxProvider>
           <Header />
           <main className="max-w-full px-10 mt-10">
