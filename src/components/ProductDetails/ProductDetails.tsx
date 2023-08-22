@@ -1,8 +1,9 @@
 "use client";
+import { useState } from "react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useQuery } from "@tanstack/react-query";
-import { getProduct, getProducts } from "@/utils/api";
+import { getProduct } from "@/utils/api";
 
 // Swiper related styles
 import "swiper/css";
@@ -11,9 +12,14 @@ import Image from "next/image";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Button from "@/components/Button/Button";
 import Quantity from "@/components/Quantity/Quantity";
-import { usePathname, useSearchParams } from "next/navigation";
+import { add } from "@/redux/features/cart-slice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
 
 const ProductDetails = ({ id }: { id: string }) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const [quantity, setQuantity] = useState(1);
+
   const { data: product } = useQuery({
     queryKey: [`hydrate-product-${id}`],
     queryFn: () => getProduct(id),
@@ -21,6 +27,7 @@ const ProductDetails = ({ id }: { id: string }) => {
 
   function addToCartHandler(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
+    dispatch(add({ ...product, totalQuantity: quantity }));
   }
 
   return (
@@ -50,7 +57,7 @@ const ProductDetails = ({ id }: { id: string }) => {
         </div>
         <div>
           <div className="flex justify-between mb-10">
-            <Quantity />
+            <Quantity value={quantity} setQuantity={setQuantity} />
             <Button onClick={addToCartHandler}>Add to Cart</Button>
           </div>
           <div>
