@@ -37,7 +37,7 @@ const ProductDetails = ({ id }: { id: string }) => {
       <PageHeader title={product?.title}>
         <p className="font-bold mt-2 text-green-900">${product?.price}</p>
       </PageHeader>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div>
           {product?.image && (
             <Swiper

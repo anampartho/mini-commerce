@@ -28,7 +28,7 @@ export default function RootLayout({
           <main className="max-w-full px-10 mt-10">
             <div className="max-w-screen-2xl mx-auto flex gap-12">
               <Sidebar />
-              <section className="w-9/12">
+              <section className="w-full md:w-9/12">
                 <ReactQueryProvider>{children}</ReactQueryProvider>
               </section>
             </div>
