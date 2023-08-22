@@ -1,0 +1,26 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#9aeac4",
+    "activityBar.background": "#9aeac4",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#b27be4",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#9aeac4",
+    "statusBar.background": "#70e1ab",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#46d892",
+    "statusBarItem.remoteBackground": "#70e1ab",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#70e1ab",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#70e1ab99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#70e1ab",
+  "typescript.format.enable": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
