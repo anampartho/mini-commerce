@@ -7,7 +7,6 @@ import { initiate } from "@/redux/features/products-slice";
 import { useDispatch } from "react-redux";
 import { AppDispatch, useMiniSelector } from "@/redux/store";
 import SortingMenu from "../SortingMenu/SortingMenu";
-import { Product } from "@/utils/types";
 
 const ProductList = () => {
   const dispatch = useDispatch<AppDispatch>();
