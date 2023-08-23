@@ -7,7 +7,13 @@ import Button from "../Button/Button";
 import { Product } from "@/utils/types";
 import { useAddToCart } from "@/utils/useAddToCart";
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({
+  product,
+  priorityImage = false,
+}: {
+  product: Product;
+  priorityImage: boolean;
+}) => {
   const addToCartHandler = useAddToCart();
 
   return (
@@ -19,6 +25,8 @@ const ProductCard = ({ product }: { product: Product }) => {
               src={product?.image || ""}
               fill={true}
               alt={product?.title || ""}
+              priority={priorityImage}
+              objectFit="contain"
             />
             <div className="absolute w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
               <Button

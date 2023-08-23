@@ -120,8 +120,14 @@ const ProductList = () => {
     <>
       <SortingMenu />
       <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-auto">
-        {sortedAndFilteredProducts?.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
+        {sortedAndFilteredProducts?.map((product, index) => {
+          return (
+            <ProductCard
+              key={product.id}
+              product={product}
+              priorityImage={index === 0}
+            />
+          );
         })}
       </div>
     </>

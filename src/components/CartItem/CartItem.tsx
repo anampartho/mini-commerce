@@ -62,6 +62,7 @@ const CartItem = ({ product }: { product: Product }) => {
                 onClick={() => {
                   dispatch(remove(product?.id));
                 }}
+                name="remove-from-cart"
               >
                 <LuTrash2 />
               </button>

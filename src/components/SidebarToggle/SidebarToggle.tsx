@@ -14,6 +14,7 @@ const SidebarToggle = () => {
       onClick={() => {
         dispatch(initiate(!sidebarOpen));
       }}
+      name="toggle-sidebar"
     >
       <LuAlignRight className="text-green-80" />
     </button>
