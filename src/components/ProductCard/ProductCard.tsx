@@ -28,7 +28,7 @@ const ProductCard = ({
               priority={priorityImage}
               objectFit="contain"
             />
-            <div className="absolute w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute w-full h-full flex items-center justify-center md:opacity-0 group-hover:opacity-100 transition-opacity">
               <Button
                 onClick={(e) => {
                   addToCartHandler(e, product, 1);
