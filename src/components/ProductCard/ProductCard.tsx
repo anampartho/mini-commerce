@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { LuStar } from "react-icons/lu";
 import Link from "next/link";
-import Button from "../Button/Button";
+import { LuStar } from "react-icons/lu";
+import Button from "@/components/Button/Button";
 import { Product } from "@/utils/types";
 import { useAddToCart } from "@/utils/useAddToCart";
 

@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProductCard from "../ProductCard/ProductCard";
 import { useQuery } from "@tanstack/react-query";
-import { getProducts } from "@/utils/api";
-import { initiate } from "@/redux/features/products-slice";
 import { useDispatch } from "react-redux";
+import { getProducts } from "@/utils/api";
+import { setProducts } from "@/redux/features/products-slice";
 import { AppDispatch, useMiniSelector } from "@/redux/store";
-import SortingMenu from "../SortingMenu/SortingMenu";
+import ProductCard from "@/components/ProductCard/ProductCard";
+import SortingMenu from "@/components/SortingMenu/SortingMenu";
 
 const ProductList = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -24,7 +24,7 @@ const ProductList = () => {
 
   useEffect(() => {
     if (!data?.length) return;
-    dispatch(initiate(data));
+    dispatch(setProducts(data));
     setFilteredProducts(data);
   }, [data, dispatch]);
 

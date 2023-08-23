@@ -12,7 +12,7 @@ export const sidebarOpen = createSlice({
   name: "sidebarOpen",
   initialState,
   reducers: {
-    initiate(state, action: PayloadAction<boolean>) {
+    setSidebarState(state, action: PayloadAction<boolean>) {
       return {
         open: action.payload,
       };
@@ -20,5 +20,5 @@ export const sidebarOpen = createSlice({
   },
 });
 
-export const { initiate } = sidebarOpen.actions;
+export const { setSidebarState } = sidebarOpen.actions;
 export default sidebarOpen.reducer;

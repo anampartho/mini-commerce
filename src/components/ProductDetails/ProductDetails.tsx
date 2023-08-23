@@ -3,16 +3,16 @@ import { useState } from "react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useQuery } from "@tanstack/react-query";
-import { getProduct } from "@/utils/api";
-
-// Swiper related styles
-import "swiper/css";
-import "swiper/css/navigation";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Button from "@/components/Button/Button";
 import Quantity from "@/components/Quantity/Quantity";
 import { useAddToCart } from "@/utils/useAddToCart";
+import { getProduct } from "@/utils/api";
+
+// Swiper related styles
+import "swiper/css";
+import "swiper/css/navigation";
 
 const ProductDetails = ({ id }: { id: string }) => {
   const addToCartHandler = useAddToCart();

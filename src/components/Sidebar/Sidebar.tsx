@@ -1,13 +1,11 @@
 "use client";
 import React, { ChangeEvent } from "react";
-import Filter from "@/components/Filter/Filter";
-import { initiate } from "@/redux/features/filter-slice";
 import { useDispatch } from "react-redux";
-import { initiate as sidebarInitiate } from "@/redux/features/sidebar-slice";
+import { initiate } from "@/redux/features/filter-slice";
 import { AppDispatch, useMiniSelector } from "@/redux/store";
-import UserIcons from "../UserIcons/UserIcons";
-import Logo from "../Logo/Logo";
-import Header from "../Header/Header";
+import Filter from "@/components/Filter/Filter";
+import UserIcons from "@/components/UserIcons/UserIcons";
+import Header from "@/components/Header/Header";
 
 const filters = [
   {

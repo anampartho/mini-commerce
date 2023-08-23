@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import NavItem from "./NavItem";
+import NavItem from "@/components/Navbar/NavItem";
 import { ClassName } from "@/utils/interfaces";
 
 const menuItems = [

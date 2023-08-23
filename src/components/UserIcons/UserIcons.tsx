@@ -1,8 +1,8 @@
 "use client";
 import { LuUser, LuShoppingCart, LuSearch } from "react-icons/lu";
-import NavItem from "../Navbar/NavItem";
-import { ClassName } from "@/utils/interfaces";
+import NavItem from "@/components/Navbar/NavItem";
 import { useMiniSelector } from "@/redux/store";
+import { ClassName } from "@/utils/interfaces";
 import { useSidebarToggle } from "@/utils/useSidebarToggle";
 
 const UserIcons = ({ className }: ClassName) => {

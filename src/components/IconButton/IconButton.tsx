@@ -1,5 +1,4 @@
 import { IconButton } from "@/utils/interfaces";
-import React from "react";
 
 const IconButton = ({
   children,

@@ -1,6 +1,6 @@
 import React, { Dispatch, MouseEventHandler, SetStateAction } from "react";
-import IconButton from "../IconButton/IconButton";
 import { LuPlus, LuMinus } from "react-icons/lu";
+import IconButton from "@/components/IconButton/IconButton";
 
 const QuantityInput = ({
   value,

@@ -1,6 +1,5 @@
-import { ClassName } from "@/utils/interfaces";
 import Link from "next/link";
-import React from "react";
+import { ClassName } from "@/utils/interfaces";
 
 const Logo = ({ className }: ClassName) => {
   return (

@@ -1,8 +1,7 @@
-import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Logo from "@/components/Logo/Logo";
 import UserIcons from "@/components/UserIcons/UserIcons";
-import SidebarToggle from "../SidebarToggle/SidebarToggle";
+import SidebarToggle from "@/components/SidebarToggle/SidebarToggle";
 
 const Header = ({ className }: { className?: string }) => {
   return (

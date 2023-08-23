@@ -1,12 +1,12 @@
-import { AppDispatch } from "@/redux/store";
 import React, { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
-import { initiate } from "@/redux/features/sortBy-slice";
+import { AppDispatch } from "@/redux/store";
+import { setSortByValue } from "@/redux/features/sortBy-slice";
 
 const SortingMenu = () => {
   const dispatch = useDispatch<AppDispatch>();
   function sortByHandler(e: ChangeEvent<HTMLSelectElement>) {
-    dispatch(initiate(e.target.value));
+    dispatch(setSortByValue(e.target.value));
   }
   return (
     <div className="flex items-center mb-10 gap-1">

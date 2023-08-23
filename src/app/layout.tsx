@@ -1,12 +1,12 @@
-import Header from "@/components/Header/Header";
-import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import Header from "@/components/Header/Header";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { ReduxProvider } from "@/redux/provider";
 import ReactQueryProvider from "@/react-query/provider";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700", "900"] });
 

@@ -12,7 +12,7 @@ export const sortBy = createSlice({
   name: "sortBy",
   initialState,
   reducers: {
-    initiate(state, action: PayloadAction<string>) {
+    setSortByValue(state, action: PayloadAction<string>) {
       return {
         sortBy: action.payload,
       };
@@ -20,5 +20,5 @@ export const sortBy = createSlice({
   },
 });
 
-export const { initiate } = sortBy.actions;
+export const { setSortByValue } = sortBy.actions;
 export default sortBy.reducer;

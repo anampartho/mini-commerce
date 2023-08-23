@@ -1,6 +1,7 @@
 "use client";
 import { Dispatch, SetStateAction } from "react";
 import QuantityInput from "@/components/Quantity/QuantityInput";
+
 const Quantity = ({
   value = 1,
   setQuantity,

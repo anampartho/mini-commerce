@@ -1,5 +1,4 @@
 import { Button } from "@/utils/interfaces";
-import React from "react";
 
 const Button = ({ children, onClick, className }: Button) => {
   return (

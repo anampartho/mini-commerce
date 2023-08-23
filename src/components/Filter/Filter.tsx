@@ -1,6 +1,5 @@
-import { Filter } from "@/utils/interfaces";
-import React from "react";
 import { LuChevronDown } from "react-icons/lu";
+import { Filter } from "@/utils/interfaces";
 
 const Filter = ({ options, children, onChange }: Filter) => {
   return (
@@ -9,7 +8,6 @@ const Filter = ({ options, children, onChange }: Filter) => {
         <h3 className="font-bold text-green-800 uppercase">{children}</h3>
         <button name="chevron-down">
           <LuChevronDown className="text-green-800" />
-          {/* <LuChevronUp className="text-green-800" /> */}
         </button>
       </div>
       {options.map((option) => {

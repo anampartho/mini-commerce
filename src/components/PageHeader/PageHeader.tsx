@@ -1,6 +1,5 @@
-import React from "react";
-import GoBack from "@/components/GoBack/GoBack";
 import { PageHeader } from "@/utils/interfaces";
+import GoBack from "@/components/GoBack/GoBack";
 
 const PageHeader = ({ children, title }: PageHeader) => {
   return (

@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CartItem from "../CartItem/CartItem";
-import { useMiniSelector } from "@/redux/store";
-import Button from "../Button/Button";
 import Link from "next/link";
+import { useMiniSelector } from "@/redux/store";
+import CartItem from "@/components/CartItem/CartItem";
+import Button from "@/components/Button/Button";
+
 const CartItems = () => {
   const [subTotal, setSubTotal] = useState(0);
   const productsInCart = useMiniSelector(

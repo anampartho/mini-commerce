@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
-import { Product } from "./types";
 import { useDispatch } from "react-redux";
-import { add } from "@/redux/features/cart-slice";
+import { addProductToCart } from "@/redux/features/cart-slice";
+import { Product } from "@/utils/types";
 
 export function useAddToCart() {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export function useAddToCart() {
   ) {
     e.stopPropagation();
     e.preventDefault();
-    dispatch(add({ ...product, totalQuantity: quantity }));
+    dispatch(addProductToCart({ ...product, totalQuantity: quantity }));
     toast.success("Product was successfully added to your cart!");
   };
 }

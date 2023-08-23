@@ -3,17 +3,17 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { LuTrash2 } from "react-icons/lu";
 import Link from "next/link";
-import QuantityInput from "../Quantity/QuantityInput";
-import { Product } from "@/utils/types";
 import { useDispatch } from "react-redux";
-import { remove } from "@/redux/features/cart-slice";
+import QuantityInput from "@/components/Quantity/QuantityInput";
+import { Product } from "@/utils/types";
+import { removeProductFromCart } from "@/redux/features/cart-slice";
 import { useAddToCart } from "@/utils/useAddToCart";
-import { useReduceFromCart } from "@/utils/useReduceFromCart";
+import { useReduceProductFromCart } from "@/utils/useReduceProductFromCart";
 
 const CartItem = ({ product }: { product: Product }) => {
   const dispatch = useDispatch();
   const addToCartHandler = useAddToCart();
-  const reduceFromCartHandler = useReduceFromCart();
+  const reduceFromCartHandler = useReduceProductFromCart();
 
   const [quantity, setQuantity] = useState(product.totalQuantity || 1);
   return (
@@ -60,7 +60,7 @@ const CartItem = ({ product }: { product: Product }) => {
             <p className="w-1/5 text-right text-green-800">
               <button
                 onClick={() => {
-                  dispatch(remove(product?.id));
+                  dispatch(removeProductFromCart(product?.id));
                 }}
                 name="remove-from-cart"
               >

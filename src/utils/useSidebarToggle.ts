@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { initiate } from "@/redux/features/sidebar-slice";
+import { setSidebarState } from "@/redux/features/sidebar-slice";
 import { AppDispatch, useMiniSelector } from "@/redux/store";
 
 export function useSidebarToggle() {
@@ -7,6 +7,6 @@ export function useSidebarToggle() {
   const sidebarOpen = useMiniSelector((state) => state.sidebarSlice.open);
 
   return function handleSidebarToggle() {
-    dispatch(initiate(!sidebarOpen));
+    dispatch(setSidebarState(!sidebarOpen));
   };
 }

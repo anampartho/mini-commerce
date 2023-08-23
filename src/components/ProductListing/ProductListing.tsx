@@ -1,7 +1,7 @@
+import { dehydrate } from "@tanstack/query-core";
 import Hydrate from "@/react-query/hydrate.client";
 import getQueryClient from "@/react-query/getQueryClient";
 import ProductList from "@/components/ProductList/ProductList";
-import { dehydrate } from "@tanstack/query-core";
 import { getProducts } from "@/utils/api";
 
 const ProductListing = async () => {
