@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent } from "react";
 import Filter from "@/components/Filter/Filter";
 import { initiate } from "@/redux/features/filter-slice";
 import { useDispatch } from "react-redux";

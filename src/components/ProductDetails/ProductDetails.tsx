@@ -12,10 +12,6 @@ import Image from "next/image";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Button from "@/components/Button/Button";
 import Quantity from "@/components/Quantity/Quantity";
-import { add } from "@/redux/features/cart-slice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import { toast } from "react-toastify";
 import { useAddToCart } from "@/utils/useAddToCart";
 
 const ProductDetails = ({ id }: { id: string }) => {
