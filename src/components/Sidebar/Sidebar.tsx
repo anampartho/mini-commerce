@@ -3,9 +3,11 @@ import React, { ChangeEvent } from "react";
 import Filter from "@/components/Filter/Filter";
 import { initiate } from "@/redux/features/filter-slice";
 import { useDispatch } from "react-redux";
+import { initiate as sidebarInitiate } from "@/redux/features/sidebar-slice";
 import { AppDispatch, useMiniSelector } from "@/redux/store";
 import UserIcons from "../UserIcons/UserIcons";
 import Logo from "../Logo/Logo";
+import Header from "../Header/Header";
 
 const filters = [
   {
@@ -58,33 +60,36 @@ const Sidebar = () => {
     dispatch(initiate(selectedFiltersCopy));
   }
 
-  function clearFilterHandler() {
-    dispatch(initiate([]));
-  }
-
   return (
-    <aside
-      className={`fixed z-10 translate-x-[-100%] left-0 top-0 w-[80%] py-5 px-10 h-[100%] ${
-        sidebarOpen ? "translate-x-[0] bg-white" : ""
-      } md:block md:relative md:bg-[unset] md:p-0 transition-[transform,background-color] md:w-3/12 md:translate-x-[0]`}
-    >
-      <Logo className="md:hidden mb-10 block" />
-      <header className="flex justify-between items-center mb-5 md:mb-10">
-        <h2 className="font-black uppercase text-3xl text-green-800">Filter</h2>
-      </header>
-      {filters.map((filter) => {
-        return (
-          <Filter
-            key={filter.id}
-            options={filter.options}
-            onChange={handleFilterChange}
-          >
-            {filter.title}
-          </Filter>
-        );
-      })}
-      <UserIcons className="md:hidden mt-10 justify-start" />
-    </aside>
+    <>
+      <aside
+        className={`fixed z-10 translate-x-[-100%] left-0 top-0 w-[100vw] h-[100%] ${
+          sidebarOpen ? "translate-x-[0] bg-white" : ""
+        } md:block md:relative md:bg-[unset] md:p-0 transition-[transform,background-color] md:w-3/12 md:translate-x-[0]`}
+      >
+        <Header className="md:hidden" />
+        <div className="px-10 py-5 md:p-0">
+          <header className="flex justify-between items-center mb-5 md:mb-10">
+            <h2 className="font-black uppercase text-3xl text-green-800">
+              Filter
+            </h2>
+          </header>
+
+          {filters.map((filter) => {
+            return (
+              <Filter
+                key={filter.id}
+                options={filter.options}
+                onChange={handleFilterChange}
+              >
+                {filter.title}
+              </Filter>
+            );
+          })}
+          <UserIcons className="md:hidden mt-10 justify-start" />
+        </div>
+      </aside>
+    </>
   );
 };
 
